@@ -6,13 +6,12 @@ abstract class Departamento{
 mixin Dept on Departamento{
   // ignore: prefer_typing_uninitialized_variables
   var departamento;
-  List cantidadArticulos = ['1', '2', '3'];
+  List cantidadArticulos = [];
   void printDepartamento() {
     print('Departamento: $departamento');
   }
 }
-
-enum Categoria{celulares, limpieza, hombre}
+enum Categoria{computadoras, limpieza, hombre}
 
 class Articulos extends Departamento with Dept{
   String nombre; 
@@ -21,8 +20,6 @@ class Articulos extends Departamento with Dept{
 
   @override
   var departamento;
-  @override
-  List cantidadArticulos =[5];
 
   Articulos({
     required this.nombre,
@@ -53,7 +50,7 @@ class Articulos extends Departamento with Dept{
 }
 
 void main() {
-  Articulos monitor = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.celulares, cantidad: 8, departamento: 'Tecnologia');
+  Articulos monitor = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.computadoras, cantidad: 8, departamento: 'Tecnologia');
   monitor.printDepartamento(); 
   print(monitor); 
   print('\n');
