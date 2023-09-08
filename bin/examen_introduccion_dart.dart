@@ -8,7 +8,7 @@ mixin Dept on Departamento{
   var departamento;
   List cantidadArticulos = ['1', '2', '3'];
   void printDepartamento() {
-    print('Departamento: $departamento, Cantidad de articulos: $cantidadArticulos');
+    print('Departamento: $departamento, Total: $cantidadArticulos');
   }
 }
 
@@ -28,7 +28,6 @@ class Articulos extends Departamento with Dept{
     required this.nombre,
     required this.categoria,
     required this.cantidad,
-    required this.cantidadArticulos,
     required this.departamento
   });
 
@@ -42,21 +41,19 @@ class Articulos extends Departamento with Dept{
     required String nombre,
     required Categoria categoria,
     required int cantidad,
-    required List cantidadArticulos,
     required String departamento,
   }) {
     return Articulos(
       nombre: nombre,
       categoria: categoria,
       cantidad: cantidad,
-      cantidadArticulos: cantidadArticulos,
       departamento: departamento,
     );
   }
 }
 
 void main() {
-  Articulos articulos1 = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.celulares, cantidad: 8, cantidadArticulos: List, departamento: 'Tecnologia');
+  Articulos articulos1 = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.celulares, cantidad: 8, departamento: 'Tecnologia');
   articulos1.printDepartamento(); 
   print(articulos1); 
 }
