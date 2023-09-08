@@ -8,7 +8,7 @@ mixin Dept on Departamento{
   var departamento;
   List cantidadArticulos = ['1', '2', '3'];
   void printDepartamento() {
-    print('Departamento: $departamento, Total: $cantidadArticulos');
+    print('Departamento: $departamento');
   }
 }
 
@@ -22,7 +22,7 @@ class Articulos extends Departamento with Dept{
   @override
   var departamento;
   @override
-  List cantidadArticulos =['1','2', '3'];
+  List cantidadArticulos =[5];
 
   Articulos({
     required this.nombre,
@@ -34,7 +34,7 @@ class Articulos extends Departamento with Dept{
   @override
   String toString(){
     final Categoria = categoria.toString().split('.').last;
-    return 'Nombre: $nombre, Cantidad: $cantidad, Categoria: $Categoria,  Departamento: $departamento';
+    return '[Nombre: $nombre, Cantidad: $cantidad, Categoria: $Categoria]';
   }
 
   factory Articulos.create({
@@ -53,7 +53,15 @@ class Articulos extends Departamento with Dept{
 }
 
 void main() {
-  Articulos articulos1 = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.celulares, cantidad: 8, departamento: 'Tecnologia');
-  articulos1.printDepartamento(); 
-  print(articulos1); 
+  Articulos monitor = Articulos.create(nombre: 'Monitor ACER', categoria: Categoria.celulares, cantidad: 8, departamento: 'Tecnologia');
+  monitor.printDepartamento(); 
+  print(monitor); 
+  print('\n');
+  Articulos hogar = Articulos(nombre: 'Detergente', categoria: Categoria.limpieza, cantidad: 34, departamento: 'Hogar');
+  hogar.printDepartamento();
+  print(hogar);
+  print('\n');
+  Articulos ropa = Articulos(nombre: 'Sueter', categoria: Categoria.hombre, cantidad: 20, departamento: 'Ropa');
+  ropa.printDepartamento();
+  print(ropa);
 }
