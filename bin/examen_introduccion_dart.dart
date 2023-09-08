@@ -1,5 +1,44 @@
-import 'package:examen_introduccion_dart/examen_introduccion_dart.dart' as examen_introduccion_dart;
+abstract class Departamento{
+  void printDept(){
+  }
+}
 
-void main(List<String> arguments) {
-  print('Hello world: ${examen_introduccion_dart.calculate()}!');
+mixin Dept on Departamento{
+  // ignore: prefer_typing_uninitialized_variables
+  var departamento;
+  void printDepartamento() {
+    print(departamento);
+  }
+}
+
+enum Categoria{celulares, limpieza, hombre}
+
+class Articulos extends Departamento with Dept{
+  String nombre; 
+  final Categoria categoria;
+
+  @override
+  var departamento;
+
+  Articulos({
+    required this.nombre,
+    required this.categoria,
+    required this.departamento
+  })
+
+  @override
+  String toString(){
+    final Categoria = categoria.toString().split('.').last;
+    return 'Nombre: $nombre, Categoria: $Categoria';
+  }
+
+  factory Articulos.create({
+    required String nombre,
+    required Categoria categoria,
+  }) {
+    return Articulos(
+      nombre: nombre,
+      categoria: categoria,
+    );
+  }
 }
