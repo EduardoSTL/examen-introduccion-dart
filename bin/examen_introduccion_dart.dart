@@ -19,6 +19,7 @@ class Articulos extends Departamento with Dept{
   final int cantidad;
 
   @override
+  // ignore: overridden_fields, prefer_typing_uninitialized_variables
   var departamento;
 
   Articulos({
@@ -30,6 +31,7 @@ class Articulos extends Departamento with Dept{
 
   @override
   String toString(){
+    // ignore: non_constant_identifier_names
     final Categoria = categoria.toString().split('.').last;
     return '[Nombre: $nombre, Cantidad: $cantidad, Categoria: $Categoria]';
   }
